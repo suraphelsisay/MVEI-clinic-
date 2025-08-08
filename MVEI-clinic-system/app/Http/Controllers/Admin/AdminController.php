@@ -37,4 +37,9 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'User created successfully!');
     }
+
+    public function patients()
+    {
+        return view('admin.patients');
+    }
 }

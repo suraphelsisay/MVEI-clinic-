@@ -24,7 +24,15 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             // Redirect based on user role
-            if (Auth::user()->isPatient()) {
+            if (Auth::user()->role === 'admin') {
+                return redirect()->intended('/admin/dashboard');
+            } elseif (Auth::user()->role === 'doctor') {
+                return redirect()->intended('/doctor/dashboard');
+            } elseif (Auth::user()->role === 'nurse') {
+                return redirect()->intended('/nurse/dashboard');
+            } elseif (Auth::user()->role === 'finance') {
+                return redirect()->intended('/finance/dashboard');
+            } elseif (Auth::user()->role === 'patient') {
                 return redirect()->intended('/patient/dashboard');
             }
             return redirect()->intended('/dashboard');
