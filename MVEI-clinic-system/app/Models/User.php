@@ -48,15 +48,17 @@ class User extends Authenticatable
         ];
     }
 
+
+
+    public function isPatient()
+    {
+        return $this->role === 'patient';
+    }
+
     // If you have a create method or similar, ensure password is hashed
     public static function create(array $attributes)
     {
         $attributes['password'] = Hash::make($attributes['password']);
         return parent::create($attributes);
-    }
-
-    public function isPatient()
-    {
-        return $this->role === 'patient';
     }
 }

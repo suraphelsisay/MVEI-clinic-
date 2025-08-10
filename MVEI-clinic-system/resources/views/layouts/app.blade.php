@@ -22,7 +22,14 @@
                 <a href="/about" class="px-3 py-2 rounded hover:bg-blue-700">About Us</a>
                 <a href="/services" class="px-3 py-2 rounded hover:bg-blue-700">Services</a>
                 <a href="/contact" class="px-3 py-2 rounded hover:bg-blue-700">Contact Us</a>
-                <a href="/login" class="px-3 py-2 rounded hover:bg-blue-700">Login</a>
+                @auth
+                    @if(auth()->user()->role === 'admin')
+                        <a href="/admin/dashboard" class="px-3 py-2 rounded hover:bg-blue-700">Admin Dashboard</a>
+                    @endif
+                @endauth
+                @guest
+                    <a href="/login" class="px-3 py-2 rounded hover:bg-blue-700">Login</a>
+                @endguest
             </div>
         </div>
     </nav>

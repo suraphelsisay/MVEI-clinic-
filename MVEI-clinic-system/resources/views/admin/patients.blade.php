@@ -1,43 +1,11 @@
 @extends('layouts.app')
 
+@extends('layouts.admin')
+
+@section('title', 'Admin Dashboard - Patients')
+@section('page_title', 'Patients Management')
+
 @section('content')
-    <div class="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-white dark:bg-gray-800 shadow-md flex flex-col">
-            <div class="p-6 border-b border-gray-200 dark:border-gray-700 flex items-center">
-                <img src="https://via.placeholder.com/40" alt="Clinic Logo" class="h-10 w-10 mr-3 rounded-full">
-                <h1 class="text-2xl font-semibold text-gray-800 dark:text-white">MVEI Clinic</h1>
-            </div>
-            <nav class="flex-1 p-6 space-y-2">
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center py-2 px-4 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"><i class="fas fa-home mr-3"></i>Dashboard</a>
-                <a href="{{ route('admin.patients') }}" class="flex items-center py-2 px-4 text-blue-600 dark:text-blue-400 rounded-lg bg-blue-100 dark:bg-blue-900"><i class="fas fa-users mr-3"></i>Patients</a>
-                <a href="#" class="flex items-center py-2 px-4 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"><i class="fas fa-user-md mr-3"></i>Doctors</a>
-                <a href="#" class="flex items-center py-2 px-4 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"><i class="fas fa-calendar-alt mr-3"></i>Appointments</a>
-                <a href="#" class="flex items-center py-2 px-4 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"><i class="fas fa-file-invoice-dollar mr-3"></i>Billing</a>
-                <a href="#" class="flex items-center py-2 px-4 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"><i class="fas fa-cogs mr-3"></i>Settings</a>
-            </nav>
-            <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                <a href="#" class="flex items-center py-2 px-4 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"><i class="fas fa-sign-out-alt mr-3"></i>Logout</a>
-            </div>
-        </aside>
-
-        <!-- Content Area -->
-        <div class="flex-1 flex flex-col">
-            <!-- Header -->
-            <header class="w-full bg-white dark:bg-gray-800 shadow-md p-6 flex items-center justify-between">
-                <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">Patients Management</h2>
-                <div class="flex items-center space-x-4">
-                    <button class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"><i class="fas fa-bell"></i></button>
-                    <div class="relative">
-                        <img src="https://via.placeholder.com/32" alt="Admin Avatar" class="rounded-full w-8 h-8">
-                        <div class="absolute bottom-0 right-0 w-2 h-2 bg-green-500 rounded-full"></div>
-                    </div>
-                    <span class="text-gray-800 dark:text-white">Admin Name</span>
-                </div>
-            </header>
-
-            <!-- Main content -->
-            <main class="flex-1 p-6 bg-gray-100 dark:bg-gray-800">
                 <div class="flex items-center justify-between mb-6">
                     <h1 class="text-3xl font-semibold text-gray-900 dark:text-white">Patients</h1>
                     <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">
@@ -134,7 +102,9 @@
             </main>
         </div>
     </div>
+@endsection
 
+@push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.tab-button');
@@ -168,4 +138,4 @@
             }
         });
     </script>
-@endsection
+@endpush
